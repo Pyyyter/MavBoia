@@ -15,6 +15,7 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using CefSharp;
 using CefSharp.DevTools.Network;
+using MavBoia;
 
 namespace SimpleExample
 {
@@ -35,7 +36,7 @@ namespace SimpleExample
         FormMapa formMapa = new FormMapa() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true, FormBorderStyle = FormBorderStyle.None };
         FormConfigurações formConfigurações = new FormConfigurações() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true, FormBorderStyle = FormBorderStyle.None };
         BrowserForm formBrowser = new BrowserForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true, FormBorderStyle = FormBorderStyle.None };
-
+        FormWeather formWeather = new FormWeather() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true, FormBorderStyle = FormBorderStyle.None };
         public Point previousMousePosition; // Store the previous mouse position for dragging the form around
 
         public GroundStation()
@@ -107,7 +108,7 @@ namespace SimpleExample
         // Ensure all forms are loaded and ready to receive data.
         private void LoadForms()
         {
-            List<Form> forms = new List<Form>() { formConfigurações, formDados, formMapa, formBrowser };
+            List<Form> forms = new List<Form>() { formConfigurações, formDados, formMapa, formBrowser, formWeather };
             foreach (var form in forms)
             {
                 panelFormLoader.Controls.Add(form);
@@ -769,6 +770,20 @@ namespace SimpleExample
             pictureBoxArariboia.Visible = true;
 
         }
+        
+        private void buttonWeather_Click(object sender, EventArgs e)
+        {
+            ButtonGenericClickCallback(sender, e);
+            panelFormLoader.Controls.Clear();
+            panelFormLoader.Dock = DockStyle.Fill;
+            panelFormLoader.Controls.Add(formWeather);
+            panelFormLoader.Show();
+
+            panelTopLeft.Enabled = true;
+            panelTopLeft.Visible = true;
+            pictureBoxArariboia.Enabled = true;
+            pictureBoxArariboia.Visible = true;
+        }
 
         /// <summary>
         /// Callback for all buttons in the sidebar. Sets the panelNav position and color, which is the thin blue bar that tracks the buttons.
@@ -847,6 +862,11 @@ namespace SimpleExample
         }
 
         private void buttonRastreio_DragDrop(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void panelSecondaryFormLoader_Paint(object sender, PaintEventArgs e)
         {
 
         }

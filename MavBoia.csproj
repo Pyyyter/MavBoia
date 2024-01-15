@@ -207,6 +207,9 @@
     <Compile Include="FormSeneca.Designer.cs">
       <DependentUpon>FormSeneca.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormWeather.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GLGChart\ChartConfigRecord.cs" />
     <Compile Include="GLGChart\ChartDataFeedInterface.cs" />
     <Compile Include="GLGChart\ChartDemoDataFeed.cs" />
@@ -249,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSeneca.resx">
       <DependentUpon>FormSeneca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWeather.resx">
+      <DependentUpon>FormWeather.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GLGChart\FormChart.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
